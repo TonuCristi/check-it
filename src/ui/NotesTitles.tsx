@@ -11,6 +11,7 @@ export interface Title {
 
 type Props = {
   titles: Title[] | undefined;
+  searchValue: string;
 };
 
 const Scroll = styled.div`
@@ -40,15 +41,19 @@ const StyledNotesTitles = styled.ul`
   gap: 1.2rem;
 `;
 
-export default function NotesTitles({ titles }: Props) {
+export default function NotesTitles({ titles, searchValue }: Props) {
   if (!titles?.length) return <NotesMessage />;
 
   return (
     <Scroll>
       <StyledNotesTitles>
-        {titles.map((title, i) => (
-          <NoteTitle key={title.id} index={i + 1} title={title} />
-        ))}
+        {titles
+          .filter(({ title }) =>
+            title.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .map((title, i) => (
+            <NoteTitle key={title.id} index={i + 1} title={title} />
+          ))}
       </StyledNotesTitles>
     </Scroll>
   );

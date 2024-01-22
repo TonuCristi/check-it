@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Props } from "./Title";
-import { useState } from "react";
+
+type Props = {
+  isEditing: boolean;
+  content: string;
+};
 
 const StyledContent = styled.textarea`
   width: 100%;
@@ -12,7 +16,7 @@ const StyledContent = styled.textarea`
   color: var(--color-violet-400);
   background: none;
   border-radius: 1.5rem;
-  padding: 1.2rem;
+  padding: 2.4rem;
   outline: none;
   resize: none;
 
@@ -22,8 +26,12 @@ const StyledContent = styled.textarea`
   }
 `;
 
-export default function Content({ isEditing }: Props) {
-  const [value, setValue] = useState("adasdasdadasda \n dasdasd");
+export default function Content({ isEditing, content }: Props) {
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    setValue(content);
+  }, [content]);
 
   return (
     <StyledContent

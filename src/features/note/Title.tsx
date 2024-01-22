@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 export interface Props {
   isEditing: boolean;
+  title: string;
 }
 
 const StyledTitle = styled.input`
@@ -24,8 +25,12 @@ const StyledTitle = styled.input`
   }
 `;
 
-export default function Title({ isEditing }: Props) {
-  const [value, setValue] = useState<string>("To feed the dog");
+export default function Title({ isEditing, title }: Props) {
+  const [value, setValue] = useState<string>("");
+
+  useEffect(() => {
+    setValue(title);
+  }, [title]);
 
   return (
     <StyledTitle

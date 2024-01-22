@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 const StyledSearchBar = styled.form`
   display: flex;
@@ -31,11 +32,15 @@ const Icon = styled(HiOutlineMagnifyingGlass)`
   color: var(--color-violet-400);
 `;
 
-export default function Searchbar() {
+export default function Searchbar({
+  register,
+}: {
+  register: UseFormRegister<FieldValues>;
+}) {
   return (
     <StyledSearchBar>
       <Icon />
-      <Input name="notes" placeholder="Search notes..." />
+      <Input placeholder="Search notes..." {...register("note")} />
     </StyledSearchBar>
   );
 }

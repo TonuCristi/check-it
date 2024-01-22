@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 import Searchbar from "./Searchbar";
 import NotesTitles from "./NotesTitles";
@@ -16,11 +17,16 @@ const StyledSidebar = styled.aside`
 
 export default function Sidebar() {
   const { data, isLoading, error } = useNotes();
+  const { register, watch } = useForm();
 
   return (
     <StyledSidebar>
-      <Searchbar />
-      {isLoading ? <Loader /> : <NotesTitles titles={data} />}
+      <Searchbar register={register} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <NotesTitles titles={data} searchValue={watch("note")} />
+      )}
       {!!error && <div>Something went wrong...</div>}
     </StyledSidebar>
   );

@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from "react";
 
 import Button from "../../ui/Button";
-import { Props } from "./Title";
 
-interface EditProps extends Props {
+interface EditProps {
+  isEditing: boolean;
   setIsEditing: Dispatch<SetStateAction<boolean>>;
 }
 

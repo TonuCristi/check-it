@@ -40,11 +40,19 @@ const Index = styled.div``;
 const StyledTitle = styled.p``;
 
 export default function NoteTitle({ index, title: { id, title } }: Props) {
+  function handleClick() {
+    if (index) {
+      sessionStorage.setItem("id", `${index}`);
+    }
+  }
+
   return (
     <StyledNoteTitle>
-      <StyledNavLink to={`${id}`}>
+      <StyledNavLink to={`${id}`} onClick={handleClick}>
         <Index>{index}</Index>
-        <StyledTitle>{title}</StyledTitle>
+        <StyledTitle>
+          {title.length < 15 ? title : `${title.slice(0, 15)}...`}
+        </StyledTitle>
       </StyledNavLink>
     </StyledNoteTitle>
   );

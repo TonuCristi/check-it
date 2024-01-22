@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
         --color-violet-400: #9775fa;
         --color-violet-500: #845ef7;
         
+        /* Red */
+        --color-red-600: #fa5252;
+        
         /* Border */
         --border-violet-sm: 2px solid var(--color-violet-400)
     }
@@ -24,15 +27,15 @@ const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%;
         overflow: hidden;
-        /* height: 100dvh; */
     }
     
     body {
-        /* height: 100dvh; */
         font-family: "Roboto", sans-serif;
         line-height: 1;
         font-weight: 400;
         overflow: hidden;
+        font-size: 1.6rem;
+        position: relative;
     }
 `;
 

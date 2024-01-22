@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import NavLinks from "./NavLinks";
-import AddNoteBtn from "./AddNoteBtn";
 import Avatar from "./Avatar";
+import CreateNoteWrapper from "../features/note/CreateNoteWrapper";
 
 const StyledNavbar = styled.nav`
   border-bottom: var(--border-violet-sm);
@@ -10,13 +10,14 @@ const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   gap: 2.4rem;
+  position: relative;
 `;
 
 export default function Navbar() {
   return (
     <StyledNavbar>
       <NavLinks />
-      <AddNoteBtn />
+      <CreateNoteWrapper />
       <Avatar />
     </StyledNavbar>
   );

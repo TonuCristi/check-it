@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const links = [
@@ -45,18 +46,44 @@ const StyledNavLink = styled(NavLink)`
   font-weight: 500;
   padding: 0.8rem;
   transition: all 0.2s;
+  position: relative;
 
   &:hover {
     color: #fff;
   }
 `;
 
+const NoteNum = styled.div`
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-red-600);
+`;
+
 export default function NavLinks() {
+  const { noteId } = useParams();
+  const [id, setId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("id")) setId(sessionStorage.getItem("id"));
+  }, [noteId]);
+
   return (
     <StyledNavLinks>
       {links.map(({ path, field }) => (
         <Item key={field}>
-          <StyledNavLink to={path}>{field}</StyledNavLink>
+          <StyledNavLink to={path}>
+            {field}
+            {field === "Note" && <NoteNum>{id ?? "?"}</NoteNum>}
+          </StyledNavLink>
         </Item>
       ))}
     </StyledNavLinks>
