@@ -8,12 +8,10 @@ const StyledLogo = styled.div`
 
   font-weight: 700;
   font-size: 2.4rem;
-  /* text-transform: uppercase; */
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
 
   padding: 2.4rem;
-  border-right: var(--border-violet-sm);
-  border-bottom: var(--border-violet-sm);
+  background-color: var(--color-gray-900);
 `;
 
 const Span = styled.span`

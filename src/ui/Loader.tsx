@@ -19,7 +19,7 @@ const OuterBorder = styled.div`
   width: 6rem;
   height: 6rem;
   border-radius: 100%;
-  border: 0.7rem solid var(--color-violet-200);
+  border: 0.7rem solid var(--color-blue-100);
 `;
 
 const InnerBorder = styled.div`
@@ -32,7 +32,7 @@ const InnerBorder = styled.div`
   border-top: 0.7rem solid transparent;
   border-bottom: 0.7rem solid transparent;
   border-left: 0.7rem solid transparent;
-  border-right: 0.7rem solid var(--color-violet-400);
+  border-right: 0.7rem solid var(--color-blue-500);
   animation: border 1s linear infinite;
 
   @keyframes border {

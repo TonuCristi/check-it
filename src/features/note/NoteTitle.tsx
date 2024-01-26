@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+import DeleteNoteBtn from "./DeleteNoteBtn";
+
 import { Title } from "./NotesTitles";
 
 type Props = {
@@ -10,16 +12,18 @@ type Props = {
 
 const StyledNoteTitle = styled.li`
   width: 100%;
-  background-color: var(--color-violet-300);
+  background-color: var(--color-blue-400);
   border-radius: 1.9rem;
+  display: flex;
+  align-items: center;
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-violet-500);
+    background-color: var(--color-blue-600);
   }
 
   &:active {
-    background-color: var(--color-violet-500);
+    background-color: var(--color-blue-600);
   }
 `;
 
@@ -29,7 +33,7 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1.6rem;
   font-weight: 500;
   padding: 1.2rem;
-  color: #fff;
+  color: var(--color-gray-50);
   width: 100%;
   display: flex;
   gap: 0.8rem;
@@ -41,8 +45,13 @@ const StyledTitle = styled.p``;
 
 export default function NoteTitle({ index, title: { id, title } }: Props) {
   function handleClick() {
+    const ids = {
+      index,
+      id,
+    };
+
     if (index) {
-      sessionStorage.setItem("id", `${index}`);
+      sessionStorage.setItem("id", `${JSON.stringify(ids)}`);
     }
   }
 
@@ -54,6 +63,7 @@ export default function NoteTitle({ index, title: { id, title } }: Props) {
           {title.length < 15 ? title : `${title.slice(0, 15)}...`}
         </StyledTitle>
       </StyledNavLink>
+      <DeleteNoteBtn id={id} />
     </StyledNoteTitle>
   );
 }

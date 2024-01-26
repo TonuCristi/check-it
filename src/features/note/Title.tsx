@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { FieldValues, UseFormRegister, UseFormSetValue } from "react-hook-form";
 import styled from "styled-components";
 
 export interface Props {
   isEditing: boolean;
   title: string;
+  register: UseFormRegister<FieldValues>;
+  setValue: UseFormSetValue<FieldValues>;
 }
 
 const StyledTitle = styled.input`
-  border: var(--border-violet-sm);
+  border: var(--border-blue-sm);
   border-radius: 1.9rem;
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
   outline: none;
   width: 100%;
   background: none;
@@ -20,23 +23,15 @@ const StyledTitle = styled.input`
   margin-right: auto;
 
   &:disabled {
-    color: var(--color-violet-300);
+    color: var(--color-blue-300);
     cursor: text;
   }
 `;
 
-export default function Title({ isEditing, title }: Props) {
-  const [value, setValue] = useState<string>("");
-
+export default function Title({ isEditing, title, register, setValue }: Props) {
   useEffect(() => {
-    setValue(title);
-  }, [title]);
+    setValue("title", title);
+  }, [title, setValue]);
 
-  return (
-    <StyledTitle
-      disabled={!isEditing}
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-    />
-  );
+  return <StyledTitle disabled={!isEditing} {...register("title")} />;
 }

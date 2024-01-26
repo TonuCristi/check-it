@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledNotesMessage = styled.p`
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.2;

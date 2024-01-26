@@ -5,12 +5,11 @@ import Avatar from "./Avatar";
 import CreateNoteWrapper from "../features/note/CreateNoteWrapper";
 
 const StyledNavbar = styled.nav`
-  border-bottom: var(--border-violet-sm);
   padding: 1.2rem 2.4rem;
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  position: relative;
+  background-color: var(--color-gray-900);
 `;
 
 export default function Navbar() {

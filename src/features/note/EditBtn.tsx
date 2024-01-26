@@ -1,16 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MouseEvent, SetStateAction } from "react";
 
 import Button from "../../ui/Button";
 
 interface EditProps {
-  isEditing: boolean;
   setIsEditing: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function EditBtn({ isEditing, setIsEditing }: EditProps) {
-  function handleClick() {
+export default function EditBtn({ setIsEditing }: EditProps) {
+  function handleClick(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
     setIsEditing((prev) => !prev);
-    console.log(isEditing);
   }
 
   return (

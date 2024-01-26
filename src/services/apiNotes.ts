@@ -1,6 +1,13 @@
 import { FieldValues } from "react-hook-form";
 import { supabase } from "./supabase";
 
+export interface Note {
+  id: string | undefined;
+  created_at: string;
+  title: string;
+  content: string;
+}
+
 export async function getNotes() {
   const { data: notes, error } = await supabase.from("notes").select("*");
 
@@ -18,7 +25,7 @@ export async function getNote(id: string | undefined | null) {
     .select("*")
     .eq("id", id);
 
-  if (error) {
+  if (error || !id) {
     console.log(error);
     throw new Error("Something went wrong with getting your note");
   }
@@ -37,7 +44,30 @@ export async function insertNote(data: FieldValues) {
     throw new Error("Something went wrong with creating your note");
   }
 
-  console.log(note);
-
   return note;
+}
+
+export async function updateNote(updatedNote: Note) {
+  const { error } = await supabase
+    .from("notes")
+    .update({
+      ...updatedNote,
+      title: updatedNote.title,
+      content: updatedNote.content,
+    })
+    .eq("id", updatedNote.id);
+
+  if (error) {
+    console.log(error);
+    throw new Error("Something went wrong with updating the note");
+  }
+}
+
+export async function removeNote(id: number) {
+  const { error } = await supabase.from("notes").delete().eq("id", id);
+
+  if (error) {
+    console.log(error);
+    throw new Error("Something went wrong with deleting your note");
+  }
 }

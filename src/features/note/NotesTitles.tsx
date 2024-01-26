@@ -15,18 +15,17 @@ type Props = {
 };
 
 const Scroll = styled.div`
-  height: 75rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-right: 1.2rem;
 
   &::-webkit-scrollbar {
-    background: var(--color-violet-100);
+    background: var(--color-blue-100);
     width: 1rem;
     border-radius: 1.9rem;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--color-violet-400);
+    background-color: var(--color-blue-400);
     border-radius: 1.9rem;
   }
 `;
@@ -42,7 +41,12 @@ const StyledNotesTitles = styled.ul`
 `;
 
 export default function NotesTitles({ titles, searchValue }: Props) {
-  if (!titles?.length) return <NotesMessage />;
+  if (!titles?.length)
+    return (
+      <StyledNotesTitles>
+        <NotesMessage />
+      </StyledNotesTitles>
+    );
 
   return (
     <Scroll>

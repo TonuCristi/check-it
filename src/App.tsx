@@ -7,6 +7,7 @@ import Note from "./pages/Note";
 import Statistics from "./pages/Statistics";
 import Settings from "./pages/Settings";
 import ErrorPage from "./pages/ErrorPage";
+import Authentication from "./pages/Authentication";
 
 import GlobalStyle from "./styles/globalStyles";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         element: <Note />,
       },
     ],
+  },
+  {
+    path: "/authentication",
+    element: <Authentication />,
   },
 ]);
 

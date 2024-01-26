@@ -8,9 +8,9 @@ import Loader from "../../ui/Loader";
 import { useCreateNote } from "./useCreateNote";
 
 const StyledCreateNoteForm = styled.form`
-  border: var(--border-violet-sm);
+  border: var(--border-blue-sm);
   border-radius: 1.1rem;
-  background-color: #fff;
+  background-color: var(--color-gray-900);
   padding: 2.4rem;
   display: flex;
   flex-direction: column;
@@ -22,14 +22,15 @@ const StyledCreateNoteForm = styled.form`
 const Label = styled.div`
   font-size: 2rem;
   font-weight: 500;
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
   margin-bottom: 2.4rem;
 `;
 
 const TitleInput = styled.input`
-  border: var(--border-violet-sm);
+  background-color: var(--color-gray-900);
+  border: var(--border-blue-sm);
   border-radius: 1.1rem;
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
   font-family: inherit;
   font-weight: inherit;
   font-size: 1.6rem;
@@ -40,14 +41,15 @@ const TitleInput = styled.input`
   margin-bottom: 1.2rem;
 
   &::placeholder {
-    color: var(--color-violet-300);
+    color: var(--color-blue-300);
   }
 `;
 
 const ContentInput = styled.textarea`
-  border: var(--border-violet-sm);
+  background-color: var(--color-gray-900);
+  border: var(--border-blue-sm);
   border-radius: 1.1rem;
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
   font-family: inherit;
   font-weight: inherit;
   font-size: 1.6rem;
@@ -60,7 +62,7 @@ const ContentInput = styled.textarea`
   resize: none;
 
   &::placeholder {
-    color: var(--color-violet-300);
+    color: var(--color-blue-300);
   }
 `;
 

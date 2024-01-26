@@ -1,6 +1,10 @@
 import Button from "../../ui/Button";
 
-export default function SaveBtn({ isEditing }: { isEditing: boolean }) {
+type Props = {
+  isEditing: boolean;
+};
+
+export default function SaveBtn({ isEditing }: Props) {
   return (
     <Button variant="regular" disabled={!isEditing}>
       Save

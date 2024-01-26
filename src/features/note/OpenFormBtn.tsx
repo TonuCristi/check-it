@@ -16,7 +16,7 @@ const StyledAddNoteBtn = styled.button<OpenProps>`
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: var(--color-violet-400);
+  background-color: var(--color-blue-400);
   padding: 0.4rem;
   border-radius: 100%;
   cursor: pointer;

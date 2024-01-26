@@ -6,7 +6,11 @@ import { getNote } from "../../services/apiNotes";
 export function useNote() {
   const { noteId } = useParams();
   const navigate = useNavigate();
-  const id = sessionStorage.getItem("id");
+  const idJSON = sessionStorage.getItem("id");
+  let id = "";
+  if (idJSON) {
+    id = JSON.parse(idJSON).id;
+  }
 
   const { data, isLoading, error } = useQuery({
     queryKey: [`note${noteId ? noteId : id}`],

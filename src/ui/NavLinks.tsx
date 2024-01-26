@@ -32,8 +32,7 @@ const Item = styled.li`
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-violet-400);
-    color: #fff;
+    background-color: var(--color-blue-400);
   }
 `;
 
@@ -41,7 +40,7 @@ const StyledNavLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   width: 100%;
-  color: var(--color-violet-400);
+  color: var(--color-blue-400);
   font-size: 1.6rem;
   font-weight: 500;
   padding: 0.8rem;
@@ -49,7 +48,7 @@ const StyledNavLink = styled(NavLink)`
   position: relative;
 
   &:hover {
-    color: #fff;
+    color: var(--color-gray-300);
   }
 `;
 
@@ -71,10 +70,13 @@ const NoteNum = styled.div`
 export default function NavLinks() {
   const { noteId } = useParams();
   const [id, setId] = useState<string | null>(null);
+  const idd = sessionStorage.getItem("id");
 
   useEffect(() => {
-    if (sessionStorage.getItem("id")) setId(sessionStorage.getItem("id"));
-  }, [noteId]);
+    if (idd) return setId(JSON.parse(idd).index);
+
+    return setId(null);
+  }, [noteId, idd]);
 
   return (
     <StyledNavLinks>
