@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+import Button from "../../ui/Button";
+
+import { useUser } from "./useUser";
+import { useSignout } from "./useSignout";
+
 const StyledAvatar = styled.div`
   display: flex;
   align-items: center;
@@ -26,10 +31,16 @@ const NoImage = styled.div`
 // `;
 
 export default function Avatar() {
+  const { user } = useUser();
+  const { signOutUser } = useSignout();
+
   return (
     <StyledAvatar>
-      <Name>John Smith</Name>
+      <Name>{user?.user_metadata.fullName}</Name>
       <NoImage />
+      <Button variant="regular" onClick={() => signOutUser()}>
+        Sign Out
+      </Button>
     </StyledAvatar>
   );
 }

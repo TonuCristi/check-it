@@ -6,7 +6,7 @@ import { getNote } from "../../services/apiNotes";
 export function useNote() {
   const { noteId } = useParams();
   const navigate = useNavigate();
-  const idJSON = sessionStorage.getItem("id");
+  const idJSON = localStorage.getItem("id");
   let id = "";
   if (idJSON) {
     id = JSON.parse(idJSON).id;

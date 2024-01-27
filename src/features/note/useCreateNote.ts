@@ -30,7 +30,7 @@ export function useCreateNote() {
           id: data[0].id,
         };
 
-        sessionStorage.setItem("id", `${JSON.stringify(ids)}`);
+        localStorage.setItem("id", `${JSON.stringify(ids)}`);
       }
       navigate(`/${data[0].id}`);
       queryClient.invalidateQueries({ queryKey: ["notes"] });

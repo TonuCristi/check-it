@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import NavLinks from "./NavLinks";
-import Avatar from "./Avatar";
+import Avatar from "../features/authentication/Avatar";
 import CreateNoteWrapper from "../features/note/CreateNoteWrapper";
 
 const StyledNavbar = styled.nav`

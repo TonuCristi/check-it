@@ -10,11 +10,16 @@ import ErrorPage from "./pages/ErrorPage";
 import Authentication from "./pages/Authentication";
 
 import GlobalStyle from "./styles/globalStyles";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <ProtectedRoute>
+        <RootLayout />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -37,7 +42,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/authentication",
-    element: <Authentication />,
+    element: (
+      <ProtectedRoute>
+        <Authentication />
+      </ProtectedRoute>
+    ),
   },
 ]);
 

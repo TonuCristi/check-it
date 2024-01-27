@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import LoginForm from "../features/authentication/LoginForm";
 import Button from "../ui/Button";
 import RegisterForm from "../features/authentication/RegisterForm";
+import Loader from "../ui/Loader";
+
+import { useUser } from "../features/authentication/useUser";
 
 const StyledAuthentication = styled.div`
   height: 100vh;
@@ -17,7 +21,6 @@ const StyledAuthentication = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  /* justify-content: flex-start; */
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
@@ -26,6 +29,19 @@ const Wrapper = styled.div`
 
 export default function Authentication() {
   const [opened, setOpened] = useState(false);
+  const { isAuthenticated, isLoading } = useUser();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) navigate("/", { replace: true });
+  }, [isAuthenticated, isLoading, navigate]);
+
+  if (isAuthenticated === true)
+    return (
+      <StyledAuthentication>
+        <Loader />
+      </StyledAuthentication>
+    );
 
   return (
     <StyledAuthentication>

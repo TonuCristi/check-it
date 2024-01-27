@@ -51,7 +51,7 @@ export default function NoteTitle({ index, title: { id, title } }: Props) {
     };
 
     if (index) {
-      sessionStorage.setItem("id", `${JSON.stringify(ids)}`);
+      localStorage.setItem("id", `${JSON.stringify(ids)}`);
     }
   }
 

@@ -1,11 +1,16 @@
-import { createContext } from "react";
+import { BaseSyntheticEvent, createContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { FieldValues, UseFormRegister } from "react-hook-form";
 
 import Button from "../../ui/Button";
 
 type AuthFormProps = {
   children: JSX.Element[];
+  onSubmit: (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    e?: BaseSyntheticEvent<object, any, any> | undefined
+  ) => Promise<void>;
 };
 
 type LabelProps = {
@@ -15,6 +20,8 @@ type LabelProps = {
 type InputProps = {
   placeholder: string;
   type: string;
+  name: string;
+  register: UseFormRegister<FieldValues>;
 };
 
 const StyledAuthForm = styled.form`
@@ -57,10 +64,10 @@ const StyledForgotPassword = styled(NavLink)`
 
 const AuthContext = createContext(null);
 
-export default function AuthForm({ children }: AuthFormProps) {
+export default function AuthForm({ children, onSubmit }: AuthFormProps) {
   return (
     <AuthContext.Provider value={null}>
-      <StyledAuthForm>{children}</StyledAuthForm>
+      <StyledAuthForm onSubmit={onSubmit}>{children}</StyledAuthForm>
     </AuthContext.Provider>
   );
 }
@@ -69,8 +76,10 @@ function Label({ children }: LabelProps) {
   return <StyledLabel>{children}</StyledLabel>;
 }
 
-function Input({ placeholder, type }: InputProps) {
-  return <StyledInput type={type} placeholder={placeholder} />;
+function Input({ placeholder, type, name, register }: InputProps) {
+  return (
+    <StyledInput type={type} placeholder={placeholder} {...register(name)} />
+  );
 }
 
 function ForgotPasswordLink() {

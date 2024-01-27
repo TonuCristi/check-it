@@ -11,7 +11,7 @@ export function useDeleteNote() {
     mutationFn: removeNote,
     onSuccess: () => {
       queryClient.invalidateQueries();
-      sessionStorage.removeItem("id");
+      localStorage.removeItem("id");
       navigate("/");
     },
   });

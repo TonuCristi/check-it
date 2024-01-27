@@ -70,7 +70,7 @@ const NoteNum = styled.div`
 export default function NavLinks() {
   const { noteId } = useParams();
   const [id, setId] = useState<string | null>(null);
-  const idd = sessionStorage.getItem("id");
+  const idd = localStorage.getItem("id");
 
   useEffect(() => {
     if (idd) return setId(JSON.parse(idd).index);

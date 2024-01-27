@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 import NoteTitle from "./NoteTitle";
 import NotesMessage from "./NotesMessage";
+import Loader from "../../ui/Loader";
+
+import { useNotes } from "../../hooks/useNotes";
 
 export interface Title {
   id: number;
@@ -10,7 +13,6 @@ export interface Title {
 }
 
 type Props = {
-  titles: Title[] | undefined;
   searchValue: string;
 };
 
@@ -40,8 +42,14 @@ const StyledNotesTitles = styled.ul`
   gap: 1.2rem;
 `;
 
-export default function NotesTitles({ titles, searchValue }: Props) {
-  if (!titles?.length)
+export default function NotesTitles({ searchValue }: Props) {
+  const { data, isLoading, error } = useNotes();
+
+  if (!data && isLoading) return <Loader />;
+
+  if (error) return <div>Something went wrong...</div>;
+
+  if (!data?.length)
     return (
       <StyledNotesTitles>
         <NotesMessage />
@@ -51,13 +59,13 @@ export default function NotesTitles({ titles, searchValue }: Props) {
   return (
     <Scroll>
       <StyledNotesTitles>
-        {titles
+        {/* {data
           .filter(({ title }) =>
             title.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((title, i) => (
             <NoteTitle key={title.id} index={i + 1} title={title} />
-          ))}
+          ))} */}
       </StyledNotesTitles>
     </Scroll>
   );
