@@ -14,6 +14,7 @@ export function useSignin() {
   } = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
+      localStorage.setItem("role", "authenticated");
       queryClient.setQueryData(["user"], data.user);
       navigate("/", { replace: true });
     },

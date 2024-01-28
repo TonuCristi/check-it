@@ -13,12 +13,14 @@ const StyledRootLayout = styled.div`
   background-color: var(--color-gray-900);
 `;
 
-// const Container = styled.div`
-//   padding: 1.2rem 2.4rem 2.4rem 1.2rem;
-//   border: var(--border-blue-sm);
-//   border-radius: 2.7rem;
-//   margin: 2.4rem;
-// `;
+const Container = styled.div`
+  padding: 1.2rem 2.4rem 2.4rem 1.2rem;
+  border-left: var(--border-blue-sm);
+  border-top: var(--border-blue-sm);
+  border-right: var(--border-blue-sm);
+  border-radius: 2.7rem 2.7rem 0 0;
+  margin: 0 2.4rem 0 0;
+`;
 
 const Main = styled.main`
   height: 100%;
@@ -34,11 +36,11 @@ export default function RootLayout() {
       <Navbar />
       <Sidebar />
 
-      {/* <Container> */}
-      <Main>
-        <Outlet />
-      </Main>
-      {/* </Container> */}
+      <Container>
+        <Main>
+          <Outlet />
+        </Main>
+      </Container>
     </StyledRootLayout>
   );
 }

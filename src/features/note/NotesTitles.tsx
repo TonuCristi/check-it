@@ -4,6 +4,7 @@ import NoteTitle from "./NoteTitle";
 import NotesMessage from "./NotesMessage";
 import Loader from "../../ui/Loader";
 
+import { useUser } from "../authentication/useUser";
 import { useNotes } from "../../hooks/useNotes";
 
 export interface Title {
@@ -43,9 +44,10 @@ const StyledNotesTitles = styled.ul`
 `;
 
 export default function NotesTitles({ searchValue }: Props) {
-  const { data, isLoading, error } = useNotes();
+  const { user } = useUser();
+  const { data, isLoading, error } = useNotes(user?.id);
 
-  if (!data && isLoading) return <Loader />;
+  if (isLoading) return <Loader />;
 
   if (error) return <div>Something went wrong...</div>;
 
@@ -59,13 +61,13 @@ export default function NotesTitles({ searchValue }: Props) {
   return (
     <Scroll>
       <StyledNotesTitles>
-        {/* {data
-          .filter(({ title }) =>
+        {data
+          ?.filter(({ title }) =>
             title.toLowerCase().includes(searchValue.toLowerCase())
           )
           .map((title, i) => (
             <NoteTitle key={title.id} index={i + 1} title={title} />
-          ))} */}
+          ))}
       </StyledNotesTitles>
     </Scroll>
   );

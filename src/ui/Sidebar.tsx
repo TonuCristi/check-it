@@ -14,7 +14,11 @@ const StyledSidebar = styled.aside`
 `;
 
 export default function Sidebar() {
-  const { register, watch } = useForm();
+  const { register, watch } = useForm({
+    defaultValues: {
+      note: "",
+    },
+  });
 
   return (
     <StyledSidebar>

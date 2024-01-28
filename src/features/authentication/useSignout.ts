@@ -9,7 +9,9 @@ export function useSignout() {
   const { mutate: signOutUser, isPending } = useMutation({
     mutationFn: logout,
     onSuccess: () => {
-      navigate("/authentication", { replace: true });
+      localStorage.removeItem("role");
+      localStorage.removeItem("id");
+      navigate("/", { replace: true });
     },
   });
 

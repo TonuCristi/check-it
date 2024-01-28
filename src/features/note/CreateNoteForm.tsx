@@ -6,6 +6,7 @@ import Button from "../../ui/Button";
 import Loader from "../../ui/Loader";
 
 import { useCreateNote } from "./useCreateNote";
+import { useUser } from "../authentication/useUser";
 
 const StyledCreateNoteForm = styled.form`
   border: var(--border-blue-sm);
@@ -71,10 +72,11 @@ export default function CreateNoteForm({
 }: {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+  const { user } = useUser();
   const { createNote, isPending, error } = useCreateNote();
   const { register, handleSubmit } = useForm();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    createNote(data);
+    createNote({ ...data, user_id: user?.id });
     setIsOpen(false);
   };
 

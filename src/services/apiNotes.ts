@@ -8,8 +8,11 @@ export interface Note {
   content: string;
 }
 
-export async function getNotes() {
-  const { data: notes, error } = await supabase.from("notes").select("*");
+export async function getNotes(id: string | undefined) {
+  const { data: notes, error } = await supabase
+    .from("notes")
+    .select("*")
+    .eq("user_id", id);
 
   if (error) {
     console.log(error);
