@@ -1,8 +1,8 @@
-import { Stat } from "../../pages/Statistics";
+import { Stat } from "./Stats";
 
 type Props = {
   children: string;
-  date: string;
+  date: string | undefined;
 };
 
 export default function Date({ children, date }: Props) {

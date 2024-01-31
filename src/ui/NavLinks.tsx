@@ -11,10 +11,6 @@ const links = [
     path: "/statistics",
     field: "Statistics",
   },
-  {
-    path: "/settings",
-    field: "Settings",
-  },
 ];
 
 const StyledNavLinks = styled.ul`
@@ -32,7 +28,7 @@ const Item = styled.li`
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-blue-400);
+    background-color: var(--color-blue-700);
   }
 `;
 
@@ -48,7 +44,7 @@ const StyledNavLink = styled(NavLink)`
   position: relative;
 
   &:hover {
-    color: var(--color-gray-300);
+    color: #fff;
   }
 `;
 

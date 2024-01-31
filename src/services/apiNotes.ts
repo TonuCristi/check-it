@@ -15,8 +15,7 @@ export async function getNotes(id: string | undefined) {
     .eq("user_id", id);
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with getting notes");
+    throw new Error(error.message);
   }
 
   return notes;
@@ -29,8 +28,7 @@ export async function getNote(id: string | undefined | null) {
     .eq("id", id);
 
   if (error || !id) {
-    console.log(error);
-    throw new Error("Something went wrong with getting your note");
+    throw new Error(error?.message);
   }
 
   return note;
@@ -43,8 +41,7 @@ export async function insertNote(data: FieldValues) {
     .select();
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with creating your note");
+    throw new Error(error.message);
   }
 
   return note;
@@ -61,8 +58,7 @@ export async function updateNote(updatedNote: Note) {
     .eq("id", updatedNote.id);
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with updating the note");
+    throw new Error(error.message);
   }
 }
 
@@ -70,7 +66,6 @@ export async function removeNote(id: number) {
   const { error } = await supabase.from("notes").delete().eq("id", id);
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with deleting your note");
+    throw new Error(error.message);
   }
 }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 import NoteTitle from "./NoteTitle";
-import NotesMessage from "./NotesMessage";
 import Loader from "../../ui/Loader";
+import Message from "../../ui/Message";
 
 import { useUser } from "../authentication/useUser";
 import { useNotes } from "../../hooks/useNotes";
@@ -54,7 +54,10 @@ export default function NotesTitles({ searchValue }: Props) {
   if (!data?.length)
     return (
       <StyledNotesTitles>
-        <NotesMessage />
+        <Message variant="regular">
+          Really?
+          <br /> Not even a single note? 😄
+        </Message>
       </StyledNotesTitles>
     );
 

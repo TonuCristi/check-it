@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
         --color-blue-400: #4dabf7;
         --color-blue-500: #339af0;
         --color-blue-600: #228be6;
+        --color-blue-700: #1c7ed6;
+
+        /* Dark blue */
+        --color-dblue-900: #123;
         
         /* Red */
         --color-red-600: #fa5252;
@@ -23,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
         
         /* Border */
         --border-blue-sm: 3px solid var(--color-blue-400);
+        --border-blue-disabled: 3px solid var(--color-blue-200);
         --border-blue-sm-t: 3px solid transparent;
     }
 
@@ -39,10 +44,11 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body {
-        font-family: "Roboto", sans-serif;
+        font-family: 'Poppins', sans-serif;
         line-height: 1;
         font-weight: 400;
         font-size: 1.6rem;
+        background-color: var(--color-dblue-900);
         position: relative;
     }
 `;

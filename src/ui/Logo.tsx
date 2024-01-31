@@ -11,7 +11,8 @@ const StyledLogo = styled.div`
   color: var(--color-blue-400);
 
   padding: 2.4rem;
-  background-color: var(--color-gray-900);
+  border-right: var(--border-blue-sm);
+  border-bottom: var(--border-blue-sm);
 `;
 
 const Span = styled.span`

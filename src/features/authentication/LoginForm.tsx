@@ -2,6 +2,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import AuthForm from "./AuthForm";
 import Loader from "../../ui/Loader";
+import Message from "../../ui/Message";
 
 import { useSignin } from "./useSignin";
 
@@ -15,25 +16,26 @@ export default function LoginForm() {
 
   if (isPending) return <Loader />;
 
-  if (error) return <div>Something went wrong...</div>;
-
   return (
-    <AuthForm onSubmit={handleSubmit(onSubmit)}>
-      <AuthForm.Label>Login</AuthForm.Label>
-      <AuthForm.Input
-        placeholder="Email"
-        type="email"
-        name="email"
-        register={register}
-      />
-      <AuthForm.Input
-        placeholder="Password"
-        type="password"
-        name="password"
-        register={register}
-      />
-      <AuthForm.ForgotPasswordLink />
-      <AuthForm.ActionButton>Login</AuthForm.ActionButton>
-    </AuthForm>
+    <>
+      <AuthForm onSubmit={handleSubmit(onSubmit)}>
+        <AuthForm.Label>Login</AuthForm.Label>
+        <AuthForm.Input
+          placeholder="Email"
+          type="email"
+          name="email"
+          register={register}
+        />
+        <AuthForm.Input
+          placeholder="Password"
+          type="password"
+          name="password"
+          register={register}
+        />
+        <AuthForm.ForgotPasswordLink />
+        <AuthForm.ActionButton>Login</AuthForm.ActionButton>
+      </AuthForm>
+      <Message variant="error" error={error} />
+    </>
   );
 }

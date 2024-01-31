@@ -1,4 +1,4 @@
-import { Stat } from "../../pages/Statistics";
+import { Stat } from "./Stats";
 
 type Props = {
   children: string;

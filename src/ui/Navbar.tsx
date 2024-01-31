@@ -9,7 +9,7 @@ const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  background-color: var(--color-gray-900);
+  border-bottom: var(--border-blue-sm);
 `;
 
 export default function Navbar() {

@@ -11,7 +11,7 @@ import { useUser } from "../authentication/useUser";
 const StyledCreateNoteForm = styled.form`
   border: var(--border-blue-sm);
   border-radius: 1.1rem;
-  background-color: var(--color-gray-900);
+  background-color: var(--color-dblue-900);
   padding: 2.4rem;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const Label = styled.div`
 `;
 
 const TitleInput = styled.input`
-  background-color: var(--color-gray-900);
+  background: none;
   border: var(--border-blue-sm);
   border-radius: 1.1rem;
   color: var(--color-blue-400);
@@ -47,7 +47,7 @@ const TitleInput = styled.input`
 `;
 
 const ContentInput = styled.textarea`
-  background-color: var(--color-gray-900);
+  background: none;
   border: var(--border-blue-sm);
   border-radius: 1.1rem;
   color: var(--color-blue-400);

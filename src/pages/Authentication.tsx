@@ -12,7 +12,7 @@ const StyledAuthentication = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-gray-900);
+  background-color: var(--color-dblue-900);
 `;
 
 const Wrapper = styled.div`

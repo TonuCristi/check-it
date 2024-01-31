@@ -78,7 +78,11 @@ function Label({ children }: LabelProps) {
 
 function Input({ placeholder, type, name, register }: InputProps) {
   return (
-    <StyledInput type={type} placeholder={placeholder} {...register(name)} />
+    <StyledInput
+      type={type}
+      placeholder={placeholder}
+      {...register(name, { required: true })}
+    />
   );
 }
 

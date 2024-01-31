@@ -16,10 +16,11 @@ const StyledAddNoteBtn = styled.button<OpenProps>`
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: var(--color-blue-400);
+  background-color: var(--color-blue-500);
   padding: 0.4rem;
   border-radius: 100%;
   cursor: pointer;
+  transition: all 0.2s;
 
   ${(props) =>
     props.$isOpen
@@ -29,6 +30,10 @@ const StyledAddNoteBtn = styled.button<OpenProps>`
           right: 2rem;
         `
       : null}
+
+  &:hover {
+    background-color: var(--color-blue-700);
+  }
 `;
 
 const iconStyle = css`

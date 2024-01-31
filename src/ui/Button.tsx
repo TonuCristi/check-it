@@ -14,7 +14,7 @@ type VariantProps = {
 
 const variants = {
   regular: css`
-    background-color: var(--color-blue-400);
+    background-color: var(--color-blue-500);
     color: var(--color-gray-50);
     font-size: 1.6rem;
     font-weight: 500;
@@ -24,7 +24,7 @@ const variants = {
     transition: all 0.2s;
 
     &:hover {
-      background-color: var(--color-blue-600);
+      background-color: var(--color-blue-700);
     }
 
     &:disabled {
@@ -34,19 +34,19 @@ const variants = {
   `,
 
   auth: css`
-    background-color: var(--color-blue-400);
+    background-color: var(--color-blue-500);
     color: var(--color-gray-50);
     font-size: 1.6rem;
     font-weight: 500;
     padding: 0.6rem 2.4rem;
-    border-radius: 1.5rem;
+    border-radius: 1.9rem;
     margin-top: 1.2rem;
     width: 100%;
     cursor: pointer;
     transition: all 0.2s;
 
     &:hover {
-      background-color: var(--color-blue-600);
+      background-color: var(--color-blue-700);
     }
 
     &:disabled {

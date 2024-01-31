@@ -10,14 +10,14 @@ const StyledRootLayout = styled.div`
   display: grid;
   grid-template-columns: 30rem 1fr;
   grid-template-rows: auto 1fr;
-  background-color: var(--color-gray-900);
+  background-color: var(--color-dblue-900);
 `;
 
 const Container = styled.div`
   padding: 1.2rem 2.4rem 2.4rem 1.2rem;
-  border-left: var(--border-blue-sm);
-  border-top: var(--border-blue-sm);
-  border-right: var(--border-blue-sm);
+  /* border-left: var(--border-blue-sm); */
+  /* border-top: var(--border-blue-sm); */
+  /* border-right: var(--border-blue-sm); */
   border-radius: 2.7rem 2.7rem 0 0;
   margin: 0 2.4rem 0 0;
 `;

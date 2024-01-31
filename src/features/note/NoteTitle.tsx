@@ -12,18 +12,18 @@ type Props = {
 
 const StyledNoteTitle = styled.li`
   width: 100%;
-  background-color: var(--color-blue-400);
+  background-color: var(--color-blue-500);
   border-radius: 1.9rem;
   display: flex;
   align-items: center;
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-blue-600);
+    background-color: var(--color-blue-700);
   }
 
   &:active {
-    background-color: var(--color-blue-600);
+    background-color: var(--color-blue-700);
   }
 `;
 

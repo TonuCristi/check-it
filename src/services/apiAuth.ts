@@ -14,8 +14,7 @@ export async function createUser({ email, fullName, password }: FieldValues) {
   });
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with creating your acccount");
+    throw new Error(error.message);
   }
 
   return data;
@@ -28,8 +27,7 @@ export async function loginUser({ email, password }: FieldValues) {
   });
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with signing in");
+    throw new Error(error.message);
   }
 
   return data;
@@ -45,8 +43,7 @@ export async function getCurrentUser() {
   } = await supabase.auth.getUser();
 
   if (error) {
-    console.log(error);
-    throw new Error("Something went wrong with getting the user");
+    throw new Error(error.message);
   }
 
   return user;

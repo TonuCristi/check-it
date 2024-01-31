@@ -9,8 +9,8 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  background-color: var(--color-gray-900);
   overflow-y: hidden;
+  border-right: var(--border-blue-sm);
 `;
 
 export default function Sidebar() {

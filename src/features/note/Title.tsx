@@ -23,7 +23,8 @@ const StyledTitle = styled.input`
   margin-right: auto;
 
   &:disabled {
-    color: var(--color-blue-300);
+    color: var(--color-blue-200);
+    border: var(--border-blue-disabled);
     cursor: text;
   }
 `;

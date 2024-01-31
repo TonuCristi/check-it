@@ -5,7 +5,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import RootLayout from "./ui/RootLayout";
 import Note from "./pages/Note";
 import Statistics from "./pages/Statistics";
-import Settings from "./pages/Settings";
 import ErrorPage from "./pages/ErrorPage";
 
 import GlobalStyle from "./styles/globalStyles";
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
       {
         path: "/statistics",
         element: <Statistics />,
-      },
-      {
-        path: "/settings",
-        element: <Settings />,
       },
       {
         path: "/:noteId",
